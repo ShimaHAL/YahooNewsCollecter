@@ -1,0 +1,9 @@
+beautifulsoup4==4.11.1
+certifi==2021.10.8
+charset-normalizer==2.0.12
+chromedriver-binary==100.0.4896.60.0
+idna==3.3
+requests==2.27.1
+selenium==3.141.0
+soupsieve==2.3.2.post1
+urllib3==1.26.9
