@@ -82,4 +82,4 @@ with open(f"./json/{SEARCH_WORD}_{datetime.now().strftime('%Y%m%d%H%M%S')}.json"
 driver.close()
 driver.quit()
 
-#TODO: subコメントはseleniumでないと取得できない．またcmtbodyはメインサブで共通なので，そこの対応がいるだろう．
+#TODO: subコメントはseleniumでないと取得できない．またcmtbodyはメインサブで共通なので，そこの対応がいるだろう．　 atticle class=rootと ul class responseとかでわければいいか．
