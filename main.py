@@ -23,7 +23,6 @@ except:
     print("検索ワードは必須です")
     quit()
 
-print(SEARCH_WORD)
 CLICK_TIMES = 0 if len(sys.argv) <= 2 else int(sys.argv[2])
 
 result=[]
