@@ -9,15 +9,22 @@ from bs4 import BeautifulSoup
 import requests
 import json
 from datetime import datetime
+import sys
 
 option = Options()
 option.add_argument('--incognito')#シークレットウィンドウ
 option.add_argument('--headless')#バックグラウンド起動
 driver = webdriver.Chrome(options=option)   #
 
-# def constants
-SEARCH_WORD = 'TEST'
-CLICK_TIMES = 1
+# コマンドライン引数を取り込み
+try:
+    SEARCH_WORD = str(sys.argv[1])
+except:
+    print("検索ワードは必須です")
+    quit()
+
+print(SEARCH_WORD)
+CLICK_TIMES = 0 if len(sys.argv) <= 2 else int(sys.argv[2])
 
 result=[]
 driver.get(f"https://news.yahoo.co.jp/search?ei=utf-8&p={SEARCH_WORD}")
