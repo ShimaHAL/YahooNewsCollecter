@@ -41,7 +41,6 @@ links = []
 for newsFeedItem in newsFeedItems:
     links.append(newsFeedItem.find("a").get("href"))
 
-links=links[2:5]
 for link in links:
     print(f"link: {link}")
     res = requests.get(link)
