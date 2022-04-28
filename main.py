@@ -24,14 +24,19 @@ except:
     quit()
 
 CLICK_TIMES = 0 if len(sys.argv) <= 2 else int(sys.argv[2])
+NOW = datetime.now().strftime('%Y%m%d%H%M%S')
+FILE_NAME = f"{SEARCH_WORD}_{NOW}.json"
 
 result=[]
 driver.get(f"https://news.yahoo.co.jp/search?ei=utf-8&p={SEARCH_WORD}")
 time.sleep(1)
 #指定した回数クリック
 for _ in range(CLICK_TIMES):
-    driver.find_element_by_class_name("button-height-large").click()
-    time.sleep(1)
+    try:
+        driver.find_element_by_class_name("button-height-large").click()
+        time.sleep(1)
+    except:
+        break
 
 html = driver.page_source.encode("utf-8")
 bs = BeautifulSoup(html, "html.parser")
@@ -132,8 +137,8 @@ for link in links:
         context['comments'] = comments_all
     result.append(context)
 
-with open(f"./json/{SEARCH_WORD}_{datetime.now().strftime('%Y%m%d%H%M%S')}.json", 'w') as f:
-    json.dump(result, f, ensure_ascii=False, indent=4)
+    with open(f"./json/{FILE_NAME}", 'w') as f:
+        json.dump(result, f, ensure_ascii=False, indent=4)
 
 driver.close()
 driver.quit()
