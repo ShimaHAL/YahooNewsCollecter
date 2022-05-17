@@ -138,7 +138,7 @@ for link in links:
             context['comments'] = comments_all
         result.append(context)
 
-        with open(f"./json/{FILE_NAME}", 'w') as f:
+        with open(f"../json/{FILE_NAME}", 'w') as f:
             json.dump(result, f, ensure_ascii=False, indent=4)
     except:
         print("do not work in this url")
